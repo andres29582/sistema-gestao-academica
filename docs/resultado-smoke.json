@@ -1,0 +1,54 @@
+{
+  "executadoEm": "2026-10-19T19:22:04.4288033Z",
+  "java": "<JDK21>/bin/java.exe",
+  "rodadas": [
+    {
+      "rodada": 1,
+      "iniciou": true,
+      "cursos": 3,
+      "swaggerHttp": 200,
+      "alunosAtivos": 1,
+      "matriculasAtivas": 2,
+      "reinicioConferido": false
+    },
+    {
+      "rodada": 2,
+      "iniciou": true,
+      "cursos": 3,
+      "swaggerHttp": 200,
+      "alunosAtivos": 1,
+      "matriculasAtivas": 2,
+      "reinicioConferido": true
+    }
+  ],
+  "resultado": "APROVADO",
+  "validacoes": [
+    {
+      "status": 400,
+      "codigo": "DADOS_INVALIDOS",
+      "detail": "Revise os campos informados.",
+      "campos": [
+        "email: O campo não pode ficar em branco.",
+        "nome: O campo não pode ficar em branco.",
+        "telefone: O campo não pode ficar em branco.",
+        "senha: O campo não pode ficar em branco.",
+        "senha: A senha deve conter no mínimo 8 caracteres e no máximo 72 bytes UTF-8.",
+        "cursoId: O campo é obrigatório."
+      ]
+    },
+    {
+      "status": 400,
+      "codigo": "DADOS_INVALIDOS",
+      "detail": "Revise os campos informados.",
+      "campos": [
+        "telefone: O campo não pode ficar em branco.",
+        "senha: O campo não pode ficar em branco.",
+        "senha: A senha deve conter no mínimo 8 caracteres e no máximo 72 bytes UTF-8.",
+        "cursoId: O campo é obrigatório.",
+        "email: O campo não pode ficar em branco.",
+        "nome: O campo não pode ficar em branco."
+      ]
+    }
+  ],
+  "historico": "Tentativa anterior parcial preservada no relato backend; helper corrigido sem alterar produção; esta execução aprovou cadastro201 e reinício de processo."
+}

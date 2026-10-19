@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: gestao-academica-beta
+  datasource:
+    url: jdbc:h2:mem:academico;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  h2:
+    console:
+      enabled: false
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  error:
+    include-message: never
+    include-stacktrace: never
+app:
+  demo: ${APP_DEMO:true}
+  jwt-segredo: ${APP_JWT_SEGREDO:}
+  origens-permitidas: ${APP_ORIGENS_PERMITIDAS:http://localhost:5173,http://127.0.0.1:5173}

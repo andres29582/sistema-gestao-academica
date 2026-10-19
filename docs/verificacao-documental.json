@@ -1,0 +1,17 @@
+{
+  "executadoEm": "2026-10-19T19:37:24.158Z",
+  "contagens": {
+    "UC": 15,
+    "RF": 19,
+    "RNF": 15,
+    "fluxos": 15
+  },
+  "arquivos": 17,
+  "linksLocais": 102,
+  "linksDoPacote": 51,
+  "linksQueSaemDoPacote": [],
+  "ancorasConferidas": 37,
+  "quebrados": [],
+  "resultado": "APROVADO",
+  "limite": "Verificação estrutural; Mermaid não renderizado e links externos não testados."
+}

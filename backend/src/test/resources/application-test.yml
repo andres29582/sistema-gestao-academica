@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:teste-academico;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=10000
+app:
+  demo: false
+logging:
+  level:
+    root: WARN

@@ -1,0 +1,19 @@
+{
+  "executadoEm": "2026-10-19T19:11:55.553Z",
+  "duracaoMs": 463176.409,
+  "aprovados": 7,
+  "falhas": 0,
+  "ignorados": 0,
+  "instaveis": 0,
+  "erros": [],
+  "apiReal": true,
+  "excecoesJavaScript": 0,
+  "build": "APROVADO",
+  "npmCi": "APROVADO",
+  "npmAuditVulnerabilidades": 0,
+  "capturasInspecionadas": [
+    "imagens/login.png",
+    "imagens/dashboard.png",
+    "imagens/dashboard-mobile.png"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "executadoEm": "2026-10-19T18:28:42.2563461Z",
+  "totais": {
+    "testes": 52,
+    "falhas": 0,
+    "erros": 0,
+    "ignorados": 0
+  },
+  "cobertura": [
+    {
+      "tipo": "INSTRUCTION",
+      "coberto": 2510,
+      "naoCoberto": 97,
+      "percentual": 96.28
+    },
+    {
+      "tipo": "BRANCH",
+      "coberto": 67,
+      "naoCoberto": 17,
+      "percentual": 79.76
+    },
+    {
+      "tipo": "LINE",
+      "coberto": 365,
+      "naoCoberto": 16,
+      "percentual": 95.8
+    },
+    {
+      "tipo": "COMPLEXITY",
+      "coberto": 233,
+      "naoCoberto": 25,
+      "percentual": 90.31
+    },
+    {
+      "tipo": "METHOD",
+      "coberto": 205,
+      "naoCoberto": 9,
+      "percentual": 95.79
+    },
+    {
+      "tipo": "CLASS",
+      "coberto": 45,
+      "naoCoberto": 0,
+      "percentual": 100.0
+    }
+  ],
+  "jar": "backend/target/gestao-academica-1.0.0-beta.1.jar"
+}

@@ -55,18 +55,18 @@ No terminal do backend, use `sh mvnw spring-boot:run` dentro de `backend/`. No t
 
 ## Contas demonstrativas
 
-Todas usam a senha `Demo@12345` e são destinadas somente à demonstração local.
+As credenciais abaixo são fictícias e servem somente para testes locais; não use dados reais. As contas desativadas (`professor.inativo@demo.local` e `inativo@demo.local`) não conseguem entrar, mesmo com a senha indicada.
 
-| E-mail | Estado |
-|---|---|
-| admin@demo.local | Administração |
-| professor@demo.local | Professor habilitado, Programação e Matemática |
-| professor.inativo@demo.local | Conta desativada; login bloqueado |
-| pendente@demo.local | Solicitação pendente |
-| aluno@demo.local | Aprovado, matrícula ativa |
-| cancelado@demo.local | Aprovado, matrícula cancelada; consulta sem edição |
-| rejeitado@demo.local | Solicitação rejeitada; consulta sem edição |
-| inativo@demo.local | Aluno desativado; login bloqueado |
+| E-mail | Senha | Estado |
+|---|---|---|
+| admin@demo.local | `Demo@12345` | Administração |
+| professor@demo.local | `Demo@12345` | Professor habilitado, Programação e Matemática |
+| professor.inativo@demo.local | `Demo@12345` | Conta desativada; login bloqueado |
+| pendente@demo.local | `Demo@12345` | Solicitação pendente |
+| aluno@demo.local | `Demo@12345` | Aprovado, matrícula ativa |
+| cancelado@demo.local | `Demo@12345` | Aprovado, matrícula cancelada; consulta sem edição |
+| rejeitado@demo.local | `Demo@12345` | Solicitação rejeitada; consulta sem edição |
+| inativo@demo.local | `Demo@12345` | Aluno desativado; login bloqueado |
 
 ## Funcionalidades e regras
 

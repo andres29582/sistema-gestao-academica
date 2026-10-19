@@ -1,68 +1,87 @@
 # Sistema de Gestão Acadêmica — Beta 1.0
 
-Prova técnica CRUD: Java21/Spring Boot3.5.16, Maven Wrapper, JPA/H2 em memória e frontend React/TypeScript/Vite. Cadastro público solicita curso; ADMIN aprova e gera uma matrícula única. O projeto é demonstração local, não um serviço pronto para produção.
+Demonstração CRUD acadêmica para prova técnica, com Java 21, Spring Boot 3.5.16, React, TypeScript e Vite. O cadastro público solicita ingresso em um curso; a administração aprova a solicitação e cria uma matrícula única. Este projeto é para execução local e não está pronto para produção.
 
-## Executar
+## Executar localmente
 
-Requisitos: **JDK21**, `JAVA_HOME` válido, **Node24** com npm11 e acesso à internet no primeiro build. Maven global não é necessário. As ferramentas portáteis usadas nesta máquina estão em `.ferramentas/`, não fazem parte da entrega versionada.
+**Docker não é necessário.** Você precisa de JDK 21 disponível no `PATH` (ou `JAVA_HOME` configurado), Node.js 24 com npm 11 e acesso à internet no primeiro uso do Maven Wrapper e na instalação das dependências do frontend. Não é preciso instalar Maven globalmente.
 
-Windows PowerShell, na raiz deste projeto:
+### 1. Inicie o backend
+
+Abra um terminal PowerShell na pasta do projeto e execute:
 
 ```powershell
-$env:JAVA_HOME='C:\caminho\para\jdk-21'
-cd backend
-.\mvnw.cmd verify
-& "$env:JAVA_HOME\bin\java.exe" -jar target\gestao-academica-1.0.0-beta.1.jar
+Set-Location .\backend
+.\mvnw.cmd spring-boot:run
 ```
 
-Linux/macOS:
+Mantenha esse terminal aberto. Na primeira execução, o Wrapper pode baixar o Maven e as dependências do backend.
 
-```sh
-export JAVA_HOME=/caminho/para/jdk-21
-cd backend
-sh mvnw verify
-"$JAVA_HOME/bin/java" -jar target/gestao-academica-1.0.0-beta.1.jar
-```
+### 2. Inicie o frontend
 
-Em outro terminal, a partir da raiz:
+Abra um segundo terminal PowerShell na pasta do projeto. Na primeira execução, ou quando `package-lock.json` mudar, instale as dependências uma vez:
 
-```sh
-cd frontend
+```powershell
+Set-Location .\frontend
 npm ci
+```
+
+Em seguida — e em cada inicialização futura — inicie o frontend:
+
+```powershell
+Set-Location .\frontend
 npm run dev
 ```
 
-Portal: **http://127.0.0.1:5173**. API: http://127.0.0.1:8080. [Swagger](http://127.0.0.1:8080/swagger-ui/index.html). O Vite encaminha `/api` para o backend local; não há CORS aberto. `npm run build` verifica TypeScript e gera `frontend/dist/`. `vite preview` apenas pré-visualiza arquivos; para API integrada use `npm run dev` ou configure proxy de implantação. `Ctrl+C` encerra cada servidor.
+Mantenha esse terminal aberto também.
 
-**H2 é volátil:** encerrar o processo descarta alterações. A próxima execução recria esquema e dados demo. Não há banco externo, Flyway ou recuperação dos dados. JWT dura15min, fica somente na memória do navegador e recarregar a página exige novo login.
+### 3. Acesse a aplicação
+
+- Portal: [http://127.0.0.1:5173](http://127.0.0.1:5173)
+- API: [http://127.0.0.1:8080](http://127.0.0.1:8080)
+- Swagger: [http://127.0.0.1:8080/swagger-ui/index.html](http://127.0.0.1:8080/swagger-ui/index.html)
+
+O Vite encaminha `/api` ao backend local; a aplicação não abre CORS para outras origens. Entre com a conta demonstrativa de administração: **admin@demo.local** — senha **Demo@12345**. As contas e os dados são fictícios; não use dados reais nem exponha essas credenciais na internet.
+
+Para encerrar, pressione `Ctrl+C` em cada terminal. O H2 é um banco em memória: ao parar o backend, as alterações são descartadas; ao iniciá-lo novamente, os dados demonstrativos são recriados.
+
+### Linux/macOS
+
+No terminal do backend, use `sh mvnw spring-boot:run` dentro de `backend/`. No terminal do frontend, use `npm ci` e `npm run dev` dentro de `frontend/`.
 
 ## Contas demonstrativas
 
-Senha de todas: `Demo@12345`. Somente dados fictícios; não usar dados reais nem expor estas credenciais na internet.
+Todas usam a senha `Demo@12345` e são destinadas somente à demonstração local.
 
 | E-mail | Estado |
 |---|---|
 | admin@demo.local | Administração |
 | professor@demo.local | Professor habilitado, Programação e Matemática |
-| professor.inativo@demo.local | Conta desativada, login bloqueado |
+| professor.inativo@demo.local | Conta desativada; login bloqueado |
 | pendente@demo.local | Solicitação pendente |
 | aluno@demo.local | Aprovado, matrícula ativa |
-| cancelado@demo.local | Aprovado, matrícula cancelada, consulta sem edição |
-| rejeitado@demo.local | Solicitação rejeitada, consulta sem edição |
-| inativo@demo.local | Aluno desativado, login bloqueado |
+| cancelado@demo.local | Aprovado, matrícula cancelada; consulta sem edição |
+| rejeitado@demo.local | Solicitação rejeitada; consulta sem edição |
+| inativo@demo.local | Aluno desativado; login bloqueado |
 
-ADMIN gerencia solicitações, alunos, professores, vínculos e matrículas. PROFESSOR consulta apenas seus cursos/alunos autorizados. ALUNO acompanha sua situação; edita dados apenas aprovado e com matrícula ativa. Cancelamento mantém APROVADO e impede rematrícula. Exclusão é lógica, bloqueada se a matrícula estiver ativa.
+## Funcionalidades e regras
 
-## Testar e verificar
+- **ADMIN** gerencia solicitações, alunos, professores, vínculos e matrículas.
+- **PROFESSOR** consulta somente os cursos e alunos autorizados.
+- **ALUNO** acompanha sua situação e edita os próprios dados apenas quando aprovado e com matrícula ativa.
+- O cancelamento mantém a situação de aprovado e impede uma nova matrícula. A exclusão é lógica e é bloqueada enquanto houver matrícula ativa.
+- JWT dura 15 minutos, fica somente na memória do navegador e exige novo login após recarregar a página.
 
-- Backend: `cd backend` e `mvnw.cmd verify` (Windows) ou `sh mvnw verify` (Linux). Relatórios Surefire e JaCoCo em `target/`. [Resultados reais:52 testes](docs/evidencias-backend.md).
-- UI real: com portas8080/5173/18081 livres, `cd frontend` e `npm test`. O teste inicia JAR e Vite e usa API real; compile o JAR antes. Navegador Chromium/Edge existente: configure `PLAYWRIGHT_CHROMIUM_EXECUTABLE` com caminho completo. O padrão é o cache Chromium desta máquina, ajustável no ambiente. Se não houver navegador compatível, instale o Chromium do Playwright por sua conta (`npx playwright install chromium`) e informe seu executável. [Evidências UI](docs/evidencias-frontend.md).
-- Smoke JAR: PowerShell7, `backend/scripts/verificar-execucao.ps1 -JavaHome <JDK21>`. Ele inicia duas vezes em18080 e encerra seus processos. [Resultado de execução](docs/resultado-smoke.json).
-- Durante esta entrega, Mockito precisou de execução autorizada no host: o sandbox Windows impedia o attach do ByteBuddy. Isso é limite do ambiente, não aprovação implícita de teste interrompido.
+## Testes e verificações
 
-## Docker — preparado, NÃO testado
+- **Backend:** dentro de `backend/`, execute `.\mvnw.cmd verify` no Windows ou `sh mvnw verify` no Linux/macOS. Os relatórios Surefire e JaCoCo ficam em `target/`. [Resultados registrados: 52 testes](docs/evidencias-backend.md).
+- **Frontend com API real:** libere as portas 8080, 5173 e 18081; compile o JAR antes e execute `npm test` dentro de `frontend/`. O cenário inicia o JAR e o Vite. `npm run build` verifica o TypeScript e gera `frontend/dist/`; `vite preview` apenas pré-visualiza os arquivos estáticos. Para indicar um navegador já instalado, defina `PLAYWRIGHT_CHROMIUM_EXECUTABLE` com o caminho completo do executável. [Evidências da interface](docs/evidencias-frontend.md).
+- **Smoke do JAR:** com PowerShell 7, execute `backend/scripts/verificar-execucao.ps1 -JavaHome <JDK21>`. O roteiro inicia o backend duas vezes na porta 18080 e encerra os processos que iniciou. [Resultado do smoke](docs/resultado-smoke.json).
+- Nos testes de backend desta entrega, Mockito precisou de execução autorizada no host porque o sandbox Windows impedia o attach do ByteBuddy. Um teste interrompido não deve ser interpretado como aprovado.
 
-Docker não está disponível neste ambiente; o critério build/run continua **pendente**. Dockerfile multi-stage usa imagens oficiais Maven/JDK21 e TemurinJRE21; não-root no runtime. A etapa de imagem empacota sem repetir testes; execute `verify` antes.
+## Docker — preparado, ainda não verificado
+
+O Dockerfile está preparado, mas o build e a execução do container não foram verificados. Docker não é necessário para executar a aplicação localmente. O container cobre somente backend e Swagger; o frontend continua separado.
 
 ```sh
 docker build -t academico-beta ./backend
@@ -70,12 +89,12 @@ docker run --rm --name academico-beta -p 127.0.0.1:8080:8080 academico-beta
 docker stop academico-beta
 ```
 
-O container só serve backend/Swagger. Frontend segue separado. H2 continua efêmero; não montar volume como promessa de persistência. Variáveis opcionais: `APP_DEMO=false` desliga seed; `APP_JWT_SEGREDO` exige Base64 de pelo menos32bytes aleatórios, nunca no código. Sem segredo configurado, uma chave aleatória é gerada por execução. O container habilita bind0.0.0.0 internamente e o comando acima limita exposição ao host local.
+O H2 continua volátil; montar um volume não torna esses dados persistentes. `APP_DEMO=false` desliga os dados demonstrativos. `APP_JWT_SEGREDO`, quando configurado, deve conter Base64 de pelo menos 32 bytes aleatórios; nunca o grave no código. Sem esse segredo, uma chave aleatória é gerada a cada execução. O backend escuta em `0.0.0.0` dentro do container; o comando acima limita a porta publicada ao host local.
 
-## Limites e documentação
+## Limites conhecidos
 
-Sem notas, frequência, calendário, materiais, CRUD de cursos, rematrícula, recuperação de senha ou módulo de exclusão LGPD. O aviso simples não certifica conformidade. Spring Boot3.5 fora de suporte OSS é risco explícito para evolução/exposição. Desempenho, auditoria WCAG completa e Docker não foram comprovados.
+Não há notas, frequência, calendário, materiais, CRUD de cursos, rematrícula, recuperação de senha ou módulo de exclusão LGPD. O aviso simples não certifica conformidade. Spring Boot 3.5 está fora do suporte OSS, um risco para evolução ou exposição do sistema. Desempenho, auditoria completa de acessibilidade WCAG e Docker não foram comprovados.
 
-[Índice técnico e produto](docs/README.md) · [Decisões e limites](docs/decisoes.md) · [Status da entrega pública](docs/entrega.md).
+## Documentação
 
-Nota: o histórico de desenvolvimento permanece fora deste pacote. Esta entrega contém o necessário para executar a aplicação e consultar sua documentação operacional.
+[Índice técnico e de produto](docs/README.md) · [Decisões e limites](docs/decisoes.md) · [Status da entrega pública](docs/entrega.md)

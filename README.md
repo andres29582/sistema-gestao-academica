@@ -26,14 +26,18 @@ Set-Location .\frontend
 npm ci
 ```
 
-Em seguida — e em cada inicialização futura — inicie o frontend:
+Com o mesmo terminal ainda aberto na pasta `frontend`, inicie a aplicação:
+
+```powershell
+npm run dev
+```
+
+Mantenha esse terminal aberto também. Nas próximas execuções, abra um novo terminal na pasta do projeto e execute:
 
 ```powershell
 Set-Location .\frontend
 npm run dev
 ```
-
-Mantenha esse terminal aberto também.
 
 ### 3. Acesse a aplicação
 

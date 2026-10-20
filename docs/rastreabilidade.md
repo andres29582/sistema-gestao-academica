@@ -1,6 +1,6 @@
 # Rastreabilidade — requisitos, implementação e testes
 
-Os 24 cenários exigidos estão detalhados, com nomes completos, em [evidências backend](evidencias-backend.md#rastreabilidade-dos-24-cenários-exigidos). Não há testes omitidos para obter aprovação. Classes executáveis:
+Os 24 cenários exigidos estão detalhados, com nomes completos, em [evidências backend](evidencias-backend.md#rastreabilidade-dos-24-cenários-exigidos). Classes executáveis:
 
 - `backend/src/test/java/br/com/academico/FluxosApiTest.java`: c01–c23 e integrações adicionais, MockMvc/banco real.
 - `backend/src/test/java/br/com/academico/ReinicioH2Test.java`: c24, dois contextos reais.
@@ -33,4 +33,4 @@ Os 24 cenários exigidos estão detalhados, com nomes completos, em [evidências
 
 RNF-001/002: camadas e contratos inspecionados;29 operações. RNF-003/004/005: autorização e minimização testadas, BCrypt12/UTF8 e JWT atual no banco; sem auditoria de segurança completa. RNF-006: CHECK real força rollback e threads exercitam concorrência de aprovação. RNF-007: c24 e smoke registrado separadamente. RNF-008/009: validação/ProblemDetail e 52 testes com percentuais medidos. RNF-010/011: Wrapper, lockfile e documentação de reprodução; somente ambiente local desta entrega executado. RNF-012: labels, foco, diálogos, tabelas e larguras desktop/mobile; sem auditoria WCAG completa. RNF-013: benchmark não executado. RNF-014: logs técnicos sem credenciais nos artefatos de evidência; não é observabilidade de produção. RNF-015: Dockerfile escrito, **Docker não executado**.
 
-Testes não cobrem exaustivamente todas as combinações: não há regressão específica para JWT expirado, dois alunos isolados ou corridas cancelamento×edição/exclusão. A auditoria independente encontrou a autorização/lock corretos estaticamente, mas isso não equivale a prova dinâmica dessas combinações.
+Testes não cobrem exaustivamente todas as combinações: não há regressão específica para JWT expirado, dois alunos isolados ou corridas cancelamento×edição/exclusão.

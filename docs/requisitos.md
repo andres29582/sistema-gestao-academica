@@ -1,10 +1,10 @@
-# Requisitos — baseline operacional de19/10/2026
+# Requisitos funcionais e não funcionais
 
-IDs e texto relevante do catálogo histórico preservados. Decisões de implementação abaixo prevalecem sobre alternativas antigas; critérios não medidos continuam pendentes, não presumidos.
+Catálogo de requisitos da versão beta. Critérios ainda não verificados são indicados como pendentes.
 
 ## 9. Requisitos funcionais
 
-**Catálogo final: 19 RF.** Fonte PDF de 18/10 pp. 81-91, com atualização de RF-019 nas pp. 95-96; atualização de 19/10 relaciona RF-014 também ao UC-015, sem criar RF-020. As descrições e critérios seguem documentados; cartões numéricos ilustrativos do RF-016 não são dados reais. Prioridades: Alta RF-001 a RF-015, Média RF-016 a RF-018, Baixa RF-019; priorização proposta, não classificação confirmada pelo avaliador.
+**Catálogo: 19 requisitos funcionais.** As prioridades indicam a organização proposta para a versão beta.
 
 | RF | Caso de uso |
 |---|---|
@@ -425,7 +425,6 @@ Como a aplicação não será uma plataforma acadêmica completa, algumas áreas
 <a id="rnf"></a>
 ## 10. Requisitos não funcionais
 
-**15 RNF, versão 1.0 proposta para validação, com RNF-007 atualizado em 19/10.** Fonte inicial PDF de 18/10 pp. 96-107; alteração de RNF-007 no PDF de 19/10 pp. 210-214. P0: RNF-001 a RNF-011; P1: RNF-012 a RNF-014; P2: RNF-015. A condição histórica era **não verificados contra implementação**; a evidência de19/10 está registrada na atualização operacional abaixo. A exigência antiga de persistência após reinício foi substituída na conversa pela inicialização do H2 em memória e resemeadura de dados demo.
 
 <a id="rnf-001"></a>
 ### RNF-001 — Arquitetura e organização do código
@@ -806,10 +805,6 @@ Explicação: O Docker facilita a reprodução do ambiente de execução e reduz
 
 Verificação: construir e executar a imagem, realizar operações CRUD e confirmar o funcionamento após reinicialização.
 
-### Auditoria documental histórica dos RNF
-
-A conversa inicial concluiu que os 15 RNF têm propósito e critérios, alinhados aos 19 RF e então 14 UC. Em 19/10, UC-015 passa a integrar a baseline. Permanecem: diferenciar exclusão lógica/desativação; garantir unicidade da matrícula; conciliar persistência com H2 em memória; isolar credenciais fictícias; medir desempenho antes de afirmar atendimento. As referências técnicas são suporte à proposta, não resultado do sistema. (PDF de 18/10 pp. 105-107; PDF de 19/10 pp. 189-214.)
-
 <a id="api"></a>
 
 ## Resoluções operacionais e estado de prova
@@ -823,4 +818,4 @@ A conversa inicial concluiu que os 15 RNF têm propósito e critérios, alinhado
 - RNF-012: labels, foco, tabelas, diálogos e layout responsivo implementados; automação/inspeção registradas em evidencias-frontend.md. Não é auditoriaWCAG completa.
 - RNF-013: não há benchmark formal/carga nem garantia de SLA; tempos de ambiente não provam desempenho de produção.
 - RNF-015: Dockerfile criado; Docker indisponível, build/run NÃO executados.
-- Requisitos documentais têm [índice](README.md); publicação/repositório/vídeos permanecem não executados.
+- A documentação da aplicação está disponível no [índice](README.md).

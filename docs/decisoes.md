@@ -1,6 +1,6 @@
-# Decisões e limites —19/10/2026
+# Decisões técnicas e limites
 
-## Definitivas no pedido atual
+## Arquitetura e escopo
 
 - Java 21, Boot 3.5.16, Maven Wrapper, JPA/H2 em memória; nãoPostgreSQL/Flyway.
 - Monólito em camadas controller→service→repository, DTOs separados; seminterfaces espelho/CRUDgenérico/microserviços.
@@ -8,7 +8,7 @@
 - Cadastro comcurso→PENDENTE→aprovaçãoADMIN+matrículaautomática; matrículaúnica vitalícia. Cancelar preservaAPROVADO.
 - Exclusãológica distinta de desativação; aluno com matrícula ATIVA não pode ser excluído.
 - React/TS/Vite+CSS próprio, semframeworks deestado/design; JWTsomente memória,401 encerra sessão; proxyAPIlocal.
-- LGPDcomo aviso simples; semmódulodeexclusão. Dadosfictícios e sem publicação/autorização implícita.
+- LGPDcomo aviso simples; semmódulodeexclusão. Dados fictícios destinados à demonstração.
 
 ## Resoluções técnicas desta implementação
 
@@ -30,6 +30,5 @@
 3. Dockerfile preparado, semDocker neste ambiente: **build/runpendentes**. Tags oficiais verificadas, mas sempin de digest imutável; recomenda-se fixar após executar em plataforma-alvo.
 4. Sembenchmark formal/carga, pentest, certificação LGPD ou auditoria WCAG completa. Cobertura alta não prova ausência de falhas.
 5. H2 e credenciaisdemonstrativas sãointencionais. Não adaptar para dados reais sem novo escopo de persistência/segurança/privacidade.
-6. Publicar repositório e vídeos exige revisão de conteúdo e autorização humana; não foi realizado.
 
 Fontes de ferramentas: [Viteproxy oficial](https://vite.dev/config/server-options#server-proxy), [imagens Maven](https://hub.docker.com/_/maven), [TemurinJRE21](https://hub.docker.com/_/eclipse-temurin/tags?name=21-jre). FontesJava/Maven/Boot específicas estão em [evidênciasbackend](evidencias-backend.md).

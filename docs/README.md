@@ -13,7 +13,5 @@ Comece pelo [README da aplicação](../README.md), execute localmente e consulte
 | Jornadas reais e imagens | [Evidências frontend](evidencias-frontend.md) |
 | Ligações requisito→código→teste | [Rastreabilidade](rastreabilidade.md) |
 | Decisões definitivas, sugestões e riscos | [Decisões](decisoes.md) |
-| Auditoria e relatórioE0–E9 | [Qualidade](qualidade.md) |
-
 
 Os documentos operacionais descrevem o código atual; [decisões e limites](decisoes.md) distinguem escolhas vigentes, sugestões e riscos. Os links deste pacote são autocontidos.

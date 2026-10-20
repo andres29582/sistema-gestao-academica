@@ -44,7 +44,7 @@ Essas credenciais são exclusivamente demonstrativas. O cadastro público nunca 
 | ADMIN | PUT `/api/matriculas/{id}` | cursoId | 200: MatriculaDto com mesmo ID |
 | ADMIN | DELETE `/api/matriculas/{id}` | — | 204: cancelamento, nunca exclusão física |
 
-¹ ADMIN/PROFESSOR habilitados alteram dados pessoais. ALUNO somente se APROVADO e com matrícula ATIVA. PENDENTE, REJEITADO e aprovado com matrícula CANCELADA consultam o próprio perfil/solicitação/matrícula, mas não alteram dados pessoais. Conta desativada ou excluída recebe 401, inclusive com token emitido anteriormente. Essa resolução conservadora fecha a pendência da seção 15.5 do histórico; não cria funcionalidades acadêmicas adicionais.
+¹ ADMIN/PROFESSOR habilitados alteram dados pessoais. ALUNO somente se APROVADO e com matrícula ATIVA. PENDENTE, REJEITADO e aprovado com matrícula CANCELADA consultam o próprio perfil/solicitação/matrícula, mas não alteram dados pessoais. Conta desativada ou excluída recebe 401, inclusive com token emitido anteriormente.
 
 ## Identificadores e respostas
 

@@ -6,6 +6,18 @@ A versão **Beta 1.0** concentra o fluxo acadêmico no cadastro, na análise da 
 
 ![Painel administrativo do Sistema de Gestão Acadêmica](docs/imagens/dashboard.png)
 
+## Acesso rápido ao sistema
+
+Após [iniciar o backend e o frontend](#executar-localmente), abra o portal em **[http://127.0.0.1:5173](http://127.0.0.1:5173)**.
+
+| Perfil | E-mail | Senha |
+|---|---|---|
+| Administrador | `admin@demo.local` | `Demo@12345` |
+| Professor | `professor@demo.local` | `Demo@12345` |
+| Aluno com matrícula ativa | `aluno@demo.local` | `Demo@12345` |
+
+As contas são fictícias e destinadas à demonstração local. Para testar outros estados de cadastro e matrícula, consulte [todas as contas demonstrativas](#contas-demonstrativas). Os dados são recriados ao reiniciar o backend.
+
 ## Proposta do projeto
 
 O sistema organiza o ingresso do aluno sem confundir cadastro com matrícula: a solicitação passa pela administração antes de gerar um vínculo acadêmico. Cada perfil acessa apenas as informações e operações previstas para sua função.

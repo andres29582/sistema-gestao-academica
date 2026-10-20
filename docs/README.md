@@ -14,10 +14,6 @@ Comece pelo [README da aplicação](../README.md), execute localmente e consulte
 | Ligações requisito→código→teste | [Rastreabilidade](rastreabilidade.md) |
 | Decisões definitivas, sugestões e riscos | [Decisões](decisoes.md) |
 | Auditoria e relatórioE0–E9 | [Qualidade](qualidade.md) |
-| Gravar vídeo técnico 2–5 min | [Roteiro técnico](roteiro-tecnico.md) |
-| Gravar vídeo produto 2–5 min | [Roteiro produto](roteiro-produto.md) |
-| Preparar publicação sem publicar agora | [Entrega](entrega.md) |
+
 
 Os documentos operacionais descrevem o código atual; [decisões e limites](decisoes.md) distinguem escolhas vigentes, sugestões e riscos. Os links deste pacote são autocontidos.
-
-Nota: este índice cobre somente a documentação da aplicação incluída neste repositório.
